@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>策士统领斯维因 - 深度解析与实战指南</title>
+    <meta name="description" content="本站提供关于英雄联盟英雄“策士统领斯维因”的全面深度解析，包括背景故事、技能机制详解、符文出装推荐、连招技巧及团战打法指南。">
+    <meta name="keywords" content="策士统领斯维因,英雄联盟,斯维因攻略,上单攻略,斯维因出装,斯维因技能">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c2c2c;
+            --accent-color: #b91c1c;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .hero-btn:hover {
+            background-color: #991b1b;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Main Content */
+        section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+            color: var(--primary-color);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--text-main);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+        }
+
+        .skill-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #e0e0e0;
+            margin-right: 5px;
+        }
+
+        /* Build & Runes */
+        .build-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .build-item {
+            background: #fafafa;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .build-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .item-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .item-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Guide List */
+        .guide-list article {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-list article:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-meta {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .guide-title:hover {
+            color: var(--accent-color);
+            cursor: pointer;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .stat-value {
+            font-weight: bold;
+        }
+
+        .highlight-text {
+            background-color: #fff5f5;
+            color: #991b1b;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="#" class="logo">策士<span>统领</span>斯维因</a>
+        <nav>
+            <ul>
+                <li><a href="#overview">英雄背景</a></li>
+                <li><a href="#skills">技能解析</a></li>
+                <li><a href="#builds">出装符文</a></li>
+                <li><a href="#strategy">实战指南</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>策士统领斯维因</h1>
+        <p>掌握毁灭与重生的力量。从被剥夺力量的骑士到高耸入云的战神，斯维因以其强大的续航能力、控制技能和后期成长性，成为上单位置极具威慑力的核心英雄。</p>
+        <a href="#builds" class="hero-btn">查看出装推荐</a>
+    </section>
+
+    <div class="container">
+        <!-- Left Column -->
+        <div class="content">
+            
+            <section id="overview">
+                <h2>英雄背景：从堕落到救赎</h2>
+                <p>斯维因曾是诺克萨斯的皇族，曾因背叛而被剥夺力量，甚至失去了一只眼睛。在经历了漫长的黑暗岁月后，他在奥术之力的引导下，将一只机械之眼植入自己的眼眶，从而重获力量与视野。如今，他不再仅仅是一名战士，更是诺克萨斯意志的化身，统御着黑暗的军团。</p>
+                <h3>角色定位</h3>
+                <p>斯维因是一名典型的<strong>上单坦克/法师</strong>。他拥有极高的单挑能力和团战控制能力。他的技能组允许他在线上通过被动技能回复大量生命值，这使得他在面对许多上单英雄时拥有极强的续航优势。</p>
+            </section>
+
+            <section id="skills">
+                <h2>技能机制详解</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <span class="skill-title">被动：黑暗之拥</span>
+                        <p>斯维因的技能对英雄造成伤害时，会积攒怒气。满怒气时，他会获得额外生命值回复，并获得护盾。这是他赖以生存的核心机制。</p>
+                        <span class="skill-tag">续航</span><span class="skill-tag">生存</span>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-title">Q：灵魂虹吸</span>
+                        <p>斯维因向目标发射暗影能量，造成魔法伤害并回复生命值。若目标生命值越低，伤害和回复越高。这是主要的消耗和回血手段。</p>
+                        <span class="skill-tag">消耗</span><span class="skill-tag">回血</span>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-title">W：恐吓</span>
+                        <p>斯维因发出恐惧咆哮，使周围敌人减速并造成伤害。如果敌人生命值低于一定比例，会被直接晕眩。控制链的关键一环。</p>
+                        <span class="skill-tag">控制</span><span class="skill-tag">减速</span>
+                    </div>
+                    <div class="skill-card">
+                        <span class="skill-title">E：鸦腹中空</span>
+                        <p>斯维因开启黑暗领域，大幅增加技能射程并提升移速。在此期间，他会将周围敌人拉向自己，并能再次激活将敌人推开。</p>
+                        <span class="skill-tag">位移</span><span class="skill-tag">范围</span>
+                    </div>
+                    <div class="skill-card" style="grid-column: 1 / -1;">
+                        <span class="skill-title">R：帝国之灾</span>
+                        <p>斯维因召唤巨大的暗影乌鸦，对目标区域造成毁灭性伤害。释放时，他会获得一个巨大的护盾，并吸收乌鸦来持续回复生命值。大招释放期间，斯维因获得霸体效果，是团战收割的神技。</p>
+                        <span class="skill-tag">爆发</span><span class="skill-tag">护盾</span><span class="skill-tag">收割</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="builds">
+                <h2>出装与符文推荐</h2>
+                <div class="build-container">
+                    <div class="build-item">
+                        <h4>符文搭配</h4>
+                        <p><strong>主系：主宰</strong></p>
+                        <ul class="item-list">
+                            <li><strong>电刑：</strong>增加爆发伤害，适合对拼。</li>
+                            <li><strong>血之滋味：</strong>增加生命偷取和回复。</li>
+                            <li><strong>贪欲猎手：</strong>将技能吸血转化为物理吸血。</li>
+                            <li><strong>骸骨镀层：</strong>增加对拼时的坦度。</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>副系：坚决</strong></p>
+                        <ul class="item-list">
+                            <li><strong>复苏之风：</strong>低血量时回复生命值。</li>
+                            <li><strong>坚定：</strong>增加减速抗性。</li>
+                        </ul>
+                    </div>
+                    <div class="build-item">
+                        <h4>核心出装</h4>
+                        <ul class="item-list">
+                            <li><strong>日炎斗篷：</strong>提供高额生命值、护甲及灼烧效果，对抗物理攻击者必备。</li>
+                            <li><strong>斯特拉克的挑战护手：</strong>提供护盾和生命值，防止被秒杀。</li>
+                            <li><strong>兰德里的折磨：</strong>提供法术强度和持续灼烧，增强W和R的消耗能力。</li>
+                            <li><strong>振奋盔甲：</strong>大幅提升生命偷取和护盾强度。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="strategy">
+                <h2>实战策略与技巧</h2>
+                <article>
+                    <h3>1. 对线期技巧</h3>
+                    <p>利用被动技能的回复能力压制对手。Q技能是核心，尽量用Q技能补刀和消耗。当对手试图近身时，使用E技能推开并接W晕眩，随后接Q和普攻进行一套连招。注意保持怒气，大招（R）可以用来清理兵线或作为保命技能。</p>
+                </article>
+                <article>
+                    <h3>2. 团战思路</h3>
+                    <p>斯维因在团战中的定位是开团手或半肉切后。寻找机会开启R技能进场，利用护盾抵挡关键技能，然后使用E技能将敌方C位拉到自己身边，接W和Q打出控制链。大招释放期间尽量存活，通过吸收乌鸦来维持血量，为队友创造输出环境。</p>
+                </article>
+                <article>
+                    <h3>3. 注意事项</h3>
+                    <p>斯维因虽然强大，但惧怕高爆发英雄（如劫、瑞文）。在低等级时避免与对手硬拼，专注于发育。开启E技能（鸦腹中空）时，要注意自己的走位，避免被敌方刺客绕后偷袭。</p>
+                </article>
+            </section>
+        </div>
+
+        <!-- Right Column -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>英雄数据概览</h3>
+                <div class="stat-row">
+                    <span>定位：</span>
+                    <span class="stat-value">上单 / 法师 / 坦克</span>
+                </div>
+                <div class="stat-row">
+                    <span>攻击类型：</span>
+                    <span class="stat-value">魔法伤害</span>
+                </div>
+                <div class="stat-row">
+                    <span>攻击距离：</span>
+                    <span class="stat-value">175</span>
+                </div>
+                <div class="stat-row">
+                    <span>版本强势度：</span>
+                    <span class="stat-value" style="color: green;">T1</span>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>连招教学</h3>
+                <div class="highlight-text">
+                    <p><strong>基础连招：</strong> E(推) -> W(晕) -> Q(回血) -> 平A</p>
+                    <p style="margin-top: 0.5rem;"><strong>爆发连招：</strong> R(进场) -> E(拉) -> W(晕) -> Q(消耗) -> 平A</p>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>热门视频</h3>
+                <ul class="item-list">
+                    <li><a href="#">斯维因五杀集锦</a></li>
+                    <li><a href="#">斯维因上单教学</a></li>
+                    <li><a href="#">斯维因反杀教学</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <p>本站提供关于策士统领斯维因的攻略与资讯。</p>
+    <p>英雄联盟及相关商标属于 Riot Games, Inc.</p>
+    <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.6;">© 2023 斯维因攻略站 版权所有</p>
+</footer>
+
+</body>
+              </html>
