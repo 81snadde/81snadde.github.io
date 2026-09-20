@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="傻傻的爱 - 深度解析纯爱、校园恋爱与治愈系情感故事。提供热门纯爱小说推荐、影视剧评、恋爱心理学指南及情感共鸣内容分享。">
+    <meta name="keywords" content="傻傻的爱, 纯爱小说, 校园恋爱, 治愈系情感, 恋爱指南, 纯爱推荐">
+    <title>傻傻的爱 - 纯爱文学与治愈情感指南</title>
+    <style>
+        :root {
+            --primary-color: #ff6b81;
+            --primary-hover: #ff4757;
+            --secondary-color: #2ed573;
+            --bg-color: #f7f1e3;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-sub: #747d8c;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-hover);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 100px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffeaa7 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: radial-gradient(circle, rgba(255, 107, 129, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.5;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 25px;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(255, 107, 129, 0.2);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .view-all {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #a4b0be;
+            border-top: 1px solid #f1f2f6;
+            padding-top: 15px;
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Featured Section (Special Layout) */
+        .featured-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .featured-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .featured-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .featured-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .featured-content p {
+            color: var(--text-sub);
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+        }
+
+        .feature-list li::before {
+            content: '♥';
+            color: var(--primary-color);
+        }
+
+        /* Emotion Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2f3542;
+            color: #dfe4ea;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info p {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #a4b0be;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #a4b0be;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #57606f;
+            font-size: 0.85rem;
+            color: #747d8c;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .featured-layout {
+                grid-template-columns: 1fr;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+            .grid-4, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 60px 0 40px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>❤</span> 傻傻的爱
+            </a>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">纯爱小说</a>
+                <a href="#">情感指南</a>
+                <a href="#">影视推荐</a>
+                <a href="#">社区互动</a>
+            </nav>
+            <a href="#" class="cta-btn">发布故事</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>在这个快节奏的时代，<br>我们依然相信<span class="highlight">傻傻的爱</span></h1>
+                <p>收录最真挚的校园回忆、最治愈的都市情感与最动人的纯爱故事。在这里，读懂爱与被爱的勇气。</p>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索小说、角色或情感语录...">
+                    <button>🔍</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container">
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="category-icon">📚</span>
+                    <div class="category-name">纯爱小说</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🏫</span>
+                    <div class="category-name">校园时光</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📺</span>
+                    <div class="category-name">治愈影视</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">💬</span>
+                    <div class="category-name">情感树洞</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Content -->
+        <section class="container">
+            <div class="featured-layout">
+                <div class="featured-image">
+                    <img src="https://picsum.photos/seed/love1/600/400" alt="纯爱故事封面">
+                </div>
+                <div class="featured-content">
+                    <h2>为什么我们总在寻找“傻傻的爱”？</h2>
+                    <p>在这个充满计算与权衡的世界里，一种不计后果、甚至显得有些笨拙的爱，反而成为了我们内心最渴望的慰藉。它不是完美的权衡，而是毫无保留的交付。</p>
+                    <p>从《情书》到《请以你的名字呼唤我》，从校园里的纸条传情到都市深夜的未读消息，“傻傻的爱”代表着一种纯粹的情感连接，它无关功利，只关乎心动。</p>
+                    <ul class="feature-list">
+                        <li>毫无保留的信任与陪伴</li>
+                        <li>即使受挫也依然相信美好的勇气</li>
+                        <li>在平凡日常中制造的不期而遇</li>
+                        <li>为了对方愿意变得更好的动力</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Stories (Grid) -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">最新热门故事</h2>
+                <a href="#" class="view-all">查看全部 <span>→</span></a>
+            </div>
+            <div class="grid-3">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">校园</span>
+                        <img src="https://picsum.photos/seed/love2/400/300" alt="高中校服">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">那年夏天，风很甜</h3>
+                        <p class="card-desc">讲述了两个性格迥异的高中生在分班后的奇妙交集，从最初的互相看不顺眼到后来的默默守护，最后毕业季的遗憾与释怀。</p>
+                        <div class="card-meta">
+                            <span>📅 2023-10-24</span>
+                            <span>❤ 1.2w</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">都市</span>
+                        <img src="https://picsum.photos/seed/love3/400/300" alt="都市夜景">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">晚风吻过你的脸</h3>
+                        <p class="card-desc">职场新人遇到成熟稳重的上司，在无数次加班的深夜里，两颗孤独的心逐渐靠近。这是一场关于成长与陪伴的治愈之旅。</p>
+                        <div class="card-meta">
+                            <span>📅 2023-10-22</span>
+                            <span>❤ 8.5k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">暗恋</span>
+                        <img src="https://picsum.photos/seed/love4/400/300" alt="图书馆">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">未寄出的信</h3>
+                        <p class="card-desc">藏在书页里的三封情书，见证了一段长达十年的暗恋。当终于鼓起勇气想要说出口时，对方已经成为了别人的新娘。</p>
+                        <div class="card-meta">
+                            <span>📅 2023-10-20</span>
+                            <span>❤ 2.1w</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Best Recommendations -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">精选必读</h2>
+                <a href="#" class="view-all">更多推荐 <span>→</span></a>
+            </div>
+            <div class="grid-4">
+                <!-- Wide Card 1 -->
+                <article class="card" style="grid-column: span 2;">
+                    <div class="card-image" style="height: 180px;">
+                        <span class="card-tag">高分小说</span>
+                        <img src="https://picsum.photos/seed/love5/800/400" alt="小说封面">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">偷走月亮的人</h3>
+                        <p class="card-desc">一个关于追逐梦想与守护爱情的动人故事，荣获年度最佳纯爱文学奖。如果你也曾为了一个人想要飞向月球，这本书不可错过。</p>
+                        <div class="card-meta">
+                            <span>作者：林浅浅</span>
+                            <span>⭐ 9.8分</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Wide Card 2 -->
+                <article class="card" style="grid-column: span 2;">
+                    <div class="card-image" style="height: 180px;">
+                        <span class="card-tag">高分电影</span>
+                        <img src="https://picsum.photos/seed/love6/800/400" alt="电影海报">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">爱在日落黄昏时</h3>
+                        <p class="card-desc">时隔九年，杰西和塞琳再次相遇。没有激烈的争吵，只有对过去美好的回味和对未来的迷茫。适合在黄昏时分静静观看。</p>
+                        <div class="card-meta">
+                            <span>导演：理查德·林克莱特</span>
+                            <span>⭐ 9.2分</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Standard Card -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/love7/400/300" alt="漫画">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">初恋这件小事</h3>
+                        <p class="card-desc">经典校园漫画改编，讲述丑小鸭变天鹅的爱情故事。</p>
+                        <div class="card-meta">
+                            <span>漫画</span>
+                            <span>连载中</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Standard Card -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/love8/400/300" alt="电台">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">深夜情感电台</h3>
+                        <p class="card-desc">每晚10点，用声音治愈你的失眠。收听那些关于爱与失去的温柔故事。</p>
+                        <div class="card-meta">
+                            <span>音频</span>
+                            <span>更新中</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">常见问题</h2>
+            </div>
+            <div style="background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <details style="margin-bottom: 15px; border-bottom: 1px solid #f1f2f6; padding-bottom: 15px;">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--text-main);">如何投稿自己的“傻傻的爱”故事？</summary>
+                    <p style="margin-top: 10px; color: var(--text-sub);">您可以点击导航栏的“发布故事”按钮，填写您的作品信息、简介以及封面图片。我们会对内容进行审核，审核通过后将有机会在首页展示。</p>
+                </details>
+                <details style="margin-bottom: 15px; border-bottom: 1px solid #f1f2f6; padding-bottom: 15px;">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--text-main);">网站收录的纯爱故事有什么标准？</summary>
+                    <p style="margin-top: 10px; color: var(--text-sub);">我们主要收录情感真挚、文笔流畅、能够引起读者共鸣的故事。无论是校园、都市还是奇幻题材，只要充满爱与希望，我们都欢迎。</p>
+                </details>
+                <details style="margin-bottom: 15px; border-bottom: 1px solid #f1f2f6; padding-bottom: 15px;">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--text-main);">可以转载这些故事吗？</summary>
+                    <p style="margin-top: 10px; color: var(--text-sub);">所有发布在网站上的原创作品均受版权保护。如需转载，请务必注明作者及出处，并联系管理员获取授权。</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="#" class="logo" style="color: white;">
+                        <span>❤</span> 傻傻的爱
+                    </a>
+                    <p>一个致力于分享纯粹情感、温暖人心的网络社区。在这里，每一份爱都值得被记录，每一份感动都值得被看见。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>探索</h4>
+                    <ul>
+                        <li><a href="#">最新发布</a></li>
+                        <li><a href="#">热门榜单</a></li>
+                        <li><a href="#">编辑推荐</a></li>
+                        <li><a href="#">作者专区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>分类</h4>
+                    <ul>
+                        <li><a href="#">校园恋爱</a></li>
+                        <li><a href="#">都市情感</a></li>
+                        <li><a href="#">治愈系</a></li>
+                        <li><a href="#">虐恋</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 傻傻的爱 版权所有.
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
