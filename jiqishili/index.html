@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="姬骑士莉莉娅 - 欧洲中世纪奇幻背景下的英勇骑士少女。本站提供莉莉娅的详细人物档案、经典战斗场景解析、骑士装备图鉴及同人创作欣赏。">
+    <meta name="keywords" content="姬骑士莉莉娅, 奇幻骑士, 中世纪角色, 角色图鉴, 动漫角色">
+    <title>姬骑士莉莉娅 - 角色图鉴与奇幻战斗档案</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #c0a062;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #7f8c8d;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://picsum.photos/seed/knight/1920/1080'); /* Placeholder for visual */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #b08d55;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 4px solid rgba(255,255,255,0.1);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--card-bg);
+            margin-top: -3rem;
+            position: relative;
+            z-index: 2;
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Character Profile */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .profile-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .profile-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .profile-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-tag {
+            background-color: #f0f2f5;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .profile-text {
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* Attributes */
+        .attributes-list {
+            margin-top: 2rem;
+        }
+
+        .attribute-item {
+            margin-bottom: 1rem;
+        }
+
+        .attr-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-info {
+            padding: 1rem;
+        }
+
+        .gallery-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .gallery-desc {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        /* Equipment Section */
+        .equipment-section {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .equipment-section .section-header h2 {
+            color: white;
+        }
+
+        .equipment-section .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .equip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .equip-card {
+            background-color: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .equip-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .equip-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .equip-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            padding: 4rem 0 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero p {
+                margin: 0 auto 2rem;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+                margin-top: 0;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>⚔️</span> 姬骑士莉莉娅
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#profile">人物档案</a></li>
+                    <li><a href="#gallery">战斗图鉴</a></li>
+                    <li><a href="#equipment">装备详解</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-tag">经典角色</span>
+                <h1>守护王国的荣耀之剑</h1>
+                <p>姬骑士莉莉娅不仅是王国最年轻的女骑士，更是挥舞圣剑“黎明之光”的守护者。在黑暗势力崛起的时刻，她挺身而出，誓要守护身后的每一寸土地与人民。</p>
+                <a href="#profile" class="cta-button">阅读人物档案</a>
+            </div>
+            <div class="hero-image">
+                <!-- Using a seed for consistent placeholder -->
+                <img src="https://picsum.photos/seed/lilia_hero/600/400" alt="姬骑士莉莉娅战斗姿态">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">18</span>
+                <span class="stat-label">服役年限</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">142</span>
+                <span class="stat-label">斩杀记录</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">S级</span>
+                <span class="stat-label">剑术评级</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">任务成功率</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Profile Section -->
+        <section id="profile" class="section-padding">
+            <div class="section-header">
+                <h2>人物档案</h2>
+                <p>深入了解莉莉娅的身世背景、性格特点以及她为何成为骑士团的传奇。</p>
+            </div>
+            
+            <div class="profile-grid">
+                <div class="profile-img">
+                    <img src="https://picsum.photos/seed/lilia_portrait/600/700" alt="莉莉娅人物立绘">
+                </div>
+                <div class="profile-content">
+                    <div class="profile-meta">
+                        <span class="meta-tag">金发</span>
+                        <span class="meta-tag">蓝眼</span>
+                        <span class="meta-tag">身高 168cm</span>
+                        <span class="meta-tag">骑士团长</span>
+                    </div>
+                    <h3>莉莉娅·冯·罗森</h3>
+                    <p class="profile-text">
+                        出生于边境小国罗森公爵家，自幼展现出惊人的战斗天赋。在12岁那年，为了保护被敌军围困的村庄，她独自一人潜入敌营，斩杀了敌军首领，一战成名。随后被皇家骑士团团长收为弟子，接受严格的贵族骑士教育。
+                    </p>
+                    <p class="profile-text">
+                        莉莉娅性格正直、冷静，但在面对弱者时流露出温柔的一面。她坚信“骑士的剑不是为了杀戮，而是为了守护”，这一信念贯穿了她的一生。尽管身居高位，她依然保持着谦逊和勤奋，每天坚持晨间训练，从不懈怠。
+                    </p>
+                    
+                    <div class="attributes-list">
+                        <div class="attribute-item">
+                            <div class="attr-header">
+                                <span>剑术</span>
+                                <span>95/100</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                        </div>
+                        <div class="attribute-item">
+                            <div class="attr-header">
+                                <span>魔法抗性</span>
+                                <span>70/100</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+                        </div>
+                        <div class="attribute-item">
+                            <div class="attr-header">
+                                <span>领导力</span>
+                                <span>88/100</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 88%;"></div></div>
+                        </div>
+                        <div class="attribute-item">
+                            <div class="attr-header">
+                                <span>体质</span>
+                                <span>82/100</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 82%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section-padding" style="background-color: #fff;">
+            <div class="section-header">
+                <h2>战斗图鉴</h2>
+                <p>记录莉莉娅在不同战役中的精彩瞬间与经典武器展示。</p>
+            </div>
+
+            <div class="gallery-grid">
+                <article class="gallery-card">
+                    <img src="https://picsum.photos/seed/battle1/400/300" alt="黎明之光的觉醒" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">黎明之光的觉醒</h3>
+                        <p class="gallery-desc">在最终决战中，莉莉娅领悟了圣剑的真谛，剑身发出耀眼光芒，击溃了黑暗魔王军的先锋部队。</p>
+                    </div>
+                </article>
+                <article class="gallery-card">
+                    <img src="https://picsum.photos/seed/battle2/400/300" alt="双剑流战术" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">双剑流战术</h3>
+                        <p class="gallery-desc">面对数量众多的敌军，莉莉娅切换为双持武器模式，以惊人的速度和精准度在战场上穿梭。</p>
+                    </div>
+                </article>
+                <article class="gallery-card">
+                    <img src="https://picsum.photos/seed/battle3/400/300" alt="重伤坚守" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">重伤坚守</h3>
+                        <p class="gallery-desc">为了掩护平民撤离，莉莉娅身受重伤，但仍坚持在城墙上战斗，直到援军赶到。</p>
+                    </div>
+                </article>
+                <article class="gallery-card">
+                    <img src="https://picsum.photos/seed/sword/400/300" alt="圣剑黎明之光" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">圣剑黎明之光</h3>
+                        <p class="gallery-desc">莉莉娅的专属武器，传说中由上古精灵打造，能够驱散一切黑暗。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Equipment Section -->
+        <section id="equipment" class="section-padding equipment-section">
+            <div class="section-header">
+                <h2>专属装备</h2>
+                <p>莉莉娅在战场上不可或缺的伙伴，每一件装备都经过精心打造。</p>
+            </div>
+            
+            <div class="equip-grid">
+                <div class="equip-card">
+                    <div class="equip-icon">🗡️</div>
+                    <h3 class="equip-title">黎明之光</h3>
+                    <p class="equip-desc">单手剑。剑身长约1.2米，通体银白，剑刃处镶嵌着能够折射光线的魔法水晶。挥舞时带有炽热的温度。</p>
+                </div>
+                <div class="equip-card">
+                    <div class="equip-icon">🛡️</div>
+                    <h3 class="equip-title">蔷薇之盾</h3>
+                    <p class="equip-desc">骑士盾。盾面上雕刻着盛开的蔷薇花纹，不仅具有极高的物理防御力，还能反弹小型的魔法攻击。</p>
+                </div>
+                <div class="equip-card">
+                    <div class="equip-icon">🥋</div>
+                    <h3 class="equip-title">银色轻甲</h3>
+                    <p class="equip-desc">轻便的链甲，设计上兼顾了防御与敏捷。银色的铠甲在阳光下熠熠生辉，象征着骑士的荣耀。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding">
+            <div class="section-header">
+                <h2>常见问题</h2>
+                <p>关于姬骑士莉莉娅的背景故事及设定细节。</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                    <summary style="font-weight: 600; cursor: pointer; color: var(--secondary-color);">莉莉娅的武器是哪里来的？</summary>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">黎明之光是上古精灵遗落在人间的宝物，历代只有被选中的骑士才能拔出它。莉莉娅在16岁那年于禁林深处拔出了这把剑。</p>
+                </details>
+                <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                    <summary style="font-weight: 600; cursor: pointer; color: var(--secondary-color);">她有魔法天赋吗？</summary>
+                    <p style="margin-top: 0.5rem; color: var(--text-light)；">莉莉娅本人并没有显赫的魔法天赋，但她通过圣剑的力量可以借用部分光属性魔法，同时她的剑术造诣极高，足以弥补魔法上的不足。</p>
+                </details>
+                <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                    <summary style="font-weight: 600; cursor: pointer; color: var(--secondary-color);">角色原型的灵感来源是什么？</summary>
+                    <p style="margin-top: 0.5rem; color: var(--text-light)；">莉莉娅的设计灵感融合了中世纪欧洲重装骑士的形象与日式二次元角色的美学特征，强调力量感与少女感的平衡。</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>姬骑士莉莉娅</h4>
+                    <p>一个关于勇气、荣耀与守护的奇幻故事。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#home">回到首页</a></li>
+                        <li><a href="#profile">人物介绍</a></li>
+                        <li><a href="#gallery">图鉴库</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">小说章节</a></li>
+                        <li><a href="#">游戏联动</a></li>
+                        <li><a href="#">同人社区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 姬骑士莉莉娅角色展示页. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to toggle mobile menu
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
