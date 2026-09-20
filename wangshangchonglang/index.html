@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网上冲浪 - 网络生活指南与高效技巧</title>
+    <meta name="description" content="网上冲浪百科，提供网络基础知识、浏览器使用技巧、网络安全防护、网络加速方法及互联网生活指南，帮助您更安全、高效地畅游互联网。">
+    <meta name="keywords" content="网上冲浪, 网络技巧, 浏览器使用, 网络安全, 互联网指南">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --primary-hover: #0056b3;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --border-color: #d2d2d7;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            color: var(--text-secondary);
+        }
+
+        .search-btn:hover {
+            background-color: #f0f0f5;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #475569;
+            margin-bottom: 32px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f9fafb;
+            border-color: #b0b0b5;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Features Grid */
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .section-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            background-color: #e0f2fe;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Browser Tools Section */
+        .tools-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .tools-sidebar {
+            background-color: #f8fafc;
+            padding: 40px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .tools-sidebar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .tool-list li {
+            margin-bottom: 16px;
+        }
+
+        .tool-list a {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .tool-list a:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .tool-list a::before {
+            content: '→';
+            margin-right: 12px;
+            font-weight: bold;
+            color: var(--text-secondary);
+        }
+
+        .tools-content {
+            padding: 40px;
+        }
+
+        .tool-detail {
+            display: none;
+        }
+
+        .tool-detail.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tool-detail h4 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .tool-detail p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .code-block {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: 60px 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 24px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 24px;
+        }
+
+        .faq-answer p {
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h4 {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-col h5 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 12px;
+            }
+            
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .tools-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span>🌊</span> 网上冲浪指南
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#basics">基础概念</a></li>
+                    <li><a href="#tools">浏览器技巧</a></li>
+                    <li><a href="#security">网络安全</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>掌握网上冲浪的核心技能</h1>
+                <p>从浏览器快捷键到隐私保护，全方位提升您的互联网使用效率与安全体验。</p>
+                <div class="cta-group">
+                    <a href="#tools" class="btn btn-primary">开始学习技巧</a>
+                    <a href="#security" class="btn btn-secondary">了解安全防护</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Core Concepts -->
+            <section id="basics">
+                <div class="section-header">
+                    <h2>网上冲浪基础</h2>
+                    <p>理解互联网运作的基本原理与常用术语</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="icon-box">🌐</div>
+                        <h3>互联网协议 (IP)</h3>
+                        <p>IP地址是设备在互联网上的唯一标识，类似于现实中的家庭住址，确保数据能准确送达。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">🔗</div>
+                        <h3>超链接与跳转</h3>
+                        <p>超链接是网页之间的桥梁，点击即可在不同页面间跳转，是构建网络信息架构的基础。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">🛡️</div>
+                        <h3>HTTPS 与加密</h3>
+                        <p>HTTPS协议通过SSL/TLS加密传输数据，防止黑客窃听和篡改，是安全浏览的必要条件。</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Browser Tools -->
+            <section id="tools">
+                <div class="section-header">
+                    <h2>浏览器进阶技巧</h2>
+                    <p>善用快捷键与扩展程序，大幅提升浏览效率</p>
+                </div>
+                <div class="tools-layout">
+                    <aside class="tools-sidebar">
+                        <h3>常用工具</h3>
+                        <ul class="tool-list">
+                            <li><a href="#" onclick="showTool('tab', event)">标签页管理</a></li>
+                            <li><a href="#" onclick="showTool('history', event)">浏览历史</a></li>
+                            <li><a href="#" onclick="showTool('bookmark', event)">书签管理</a></li>
+                            <li><a href="#" onclick="showTool('devtools', event)">开发者工具</a></li>
+                        </ul>
+                    </aside>
+                    <div class="tools-content">
+                        <div id="tab" class="tool-detail active">
+                            <h4>标签页管理技巧</h4>
+                            <p>现代浏览器支持多标签浏览，但过多的标签会导致资源占用增加。以下是高效管理标签页的建议：</p>
+                            <ul style="margin-left: 20px; margin-bottom: 20px; color: var(--text-secondary);">
+                                <li><strong>Ctrl+Shift+T (Windows/Linux) / Cmd+Shift+T (Mac):</strong> 快速恢复最近关闭的标签页。</li>
+                                <li><strong>Ctrl+Tab / Ctrl+Shift+Tab:</strong> 在标签页之间快速切换。</li>
+                                <li><strong>双击标签栏空白处:</strong> 在当前窗口新建一个标签页。</li>
+                            </ul>
+                        </div>
+                        <div id="history" class="tool-detail">
+                            <h4>浏览历史记录</h4>
+                            <p>历史记录保存了您访问过的网页列表，不仅可以方便地回溯，也是追踪信息来源的有效方式。</p>
+                            <p>在浏览器地址栏输入 <code>chrome://history</code> (Chrome) 或 <code>edge://history</code> (Edge) 即可进入历史记录管理页面。</p>
+                        </div>
+                        <div id="bookmark" class="tool-detail">
+                            <h4>智能书签管理</h4>
+                            <p>将常用的网址整理到文件夹中，并使用浏览器提供的同步功能，可以在不同设备间无缝访问。</p>
+                        </div>
+                        <div id="devtools" class="tool-detail">
+                            <h4>开发者工具</h4>
+                            <p>按 F12 或右键选择“检查”即可打开开发者工具。它不仅能调试代码，还能查看网页加载速度、修改CSS样式以及监控网络请求。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security -->
+            <section id="security">
+                <div class="section-header">
+                    <h2>网络安全与隐私</h2>
+                    <p>在享受网上冲浪便利的同时，保护个人信息安全</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <h3>密码管理</h3>
+                        <p>避免在不同网站使用相同密码。建议使用密码管理器生成高强度随机密码，并定期更换。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>公共Wi-Fi防护</h3>
+                        <p>在咖啡厅或机场使用公共Wi-Fi时，尽量避免进行网银支付或输入敏感信息，建议开启VPN。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>识别钓鱼网站</h3>
+                        <p>警惕伪装成银行或官方机构的邮件和链接，注意检查网址拼写是否正确，以及网站是否具备HTTPS证书。</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="faq-container">
+                <div class="section-header" style="text-align: center;">
+                    <h2>常见问题解答</h2>
+                    <p>关于网上冲浪的疑惑，这里都有答案</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        什么是“断网”？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>“断网”通常指计算机或设备无法连接到互联网服务提供商（ISP）或互联网本身。这可能是由于路由器故障、网线松动、ISP服务中断或本地网络配置错误导致的。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        如何提高网速？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>提高网速的方法包括：升级宽带套餐、使用有线连接替代Wi-Fi、关闭后台占用带宽的程序、重启路由器以及清理浏览器缓存。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        什么是 DNS，它有什么作用？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>DNS（域名系统）是将人类可读的网址（如 www.example.com）转换为计算机可识别的IP地址的系统。更换更快的公共DNS（如Google DNS或阿里DNS）有时能显著提升网页解析速度。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>🌊 网上冲浪指南</h4>
+                <p>致力于提供最实用、最前沿的互联网使用技巧与安全知识，让每个人都能享受科技带来的便利。</p>
+            </div>
+            <div class="footer-col">
+                <h5>快速导航</h5>
+                <ul>
+                    <li><a href="#basics">基础概念</a></li>
+                    <li><a href="#tools">浏览器技巧</a></li>
+                    <li><a href="#security">安全防护</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>相关资源</h5>
+                <ul>
+                    <li><a href="#">网络术语表</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>关注我们</h5>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">知乎专栏</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 网上冲浪指南. 保留所有权利. 本站内容仅供学习参考。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching Logic
+        function showTool(toolId, event) {
+            event.preventDefault();
+            
+            // Hide all details
+            const details = document.querySelectorAll('.tool-detail');
+            details.forEach(detail => {
+                detail.classList.remove('active');
+            });
+
+            // Show selected detail
+            const selectedDetail = document.getElementById(toolId);
+            if (selectedDetail) {
+                selectedDetail.classList.add('active');
+            }
+        }
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
