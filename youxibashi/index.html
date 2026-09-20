@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏巴士-全网热门游戏资讯、攻略与下载平台</title>
+    <meta name="description" content="游戏巴士提供最新的游戏资讯、专业的游戏攻略、热门手游评测以及安全便捷的游戏下载服务。覆盖PC端、主机及移动端，是玩家获取游戏信息的首选平台。">
+    <meta name="keywords" content="游戏巴士,游戏攻略,手游评测,游戏下载,游戏资讯">
+    <style>
+        :root {
+            --primary-color: #ff5722;
+            --primary-hover: #e64a19;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #b0b0b0;
+            --accent-green: #4caf50;
+            --accent-blue: #2196f3;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --container-width: 1200px;
+            --border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            background: #2c2c2c;
+            border: 1px solid #444;
+            border-radius: 20px;
+            padding: 8px 16px 8px 36px;
+            color: var(--text-main);
+            font-size: 14px;
+            width: 200px;
+            transition: width 0.3s, border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            width: 240px;
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        .btn-login {
+            background: transparent;
+            border: 1px solid var(--text-sub);
+            color: var(--text-main);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            border-color: var(--text-main);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-lg) 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            min-height: 450px;
+        }
+
+        .hero-main {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: #2a2a2a;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .hero-main img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: transform 0.5s;
+        }
+
+        .hero-main:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 2;
+            padding: var(--spacing-lg);
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .hero-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero-title {
+            font-size: 36px;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+
+        .hero-desc {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: var(--spacing-md);
+            max-width: 600px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .hero-side {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .side-card {
+            flex: 1;
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--spacing-md);
+            cursor: pointer;
+        }
+
+        .side-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .side-card-overlay {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .side-card-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Section Layout */
+        .section {
+            padding: var(--spacing-lg) 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .view-all {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #2a2a2a;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: #444;
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #2a2a2a;
+        }
+
+        .card-img-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        .card-body {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 13px;
+            color: var(--text-sub);
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: auto;
+        }
+
+        .card-meta .date {
+            color: #888;
+        }
+
+        .card-meta .read-more {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Special List Style */
+        .list-style {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .list-item {
+            display: flex;
+            gap: var(--spacing-md);
+            background: var(--bg-card);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            align-items: center;
+            border: 1px solid #2a2a2a;
+        }
+
+        .list-thumb {
+            width: 120px;
+            height: 90px;
+            border-radius: 6px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .list-content {
+            flex: 1;
+        }
+
+        .list-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .list-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+        }
+
+        .list-tags {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            background: #333;
+            border-radius: 10px;
+            color: #aaa;
+        }
+
+        .tag.hot {
+            background: rgba(255, 87, 34, 0.2);
+            color: var(--primary-color);
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .download-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .download-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--primary-color);
+        }
+
+        .app-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-sm);
+            border-radius: 10px;
+        }
+
+        .app-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .app-size {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 60px 0 20px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-sub);
+            font-size: 14px;
+            margin-top: 12px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+            .hero-main {
+                height: 400px;
+            }
+            .hero-side {
+                flex-direction: row;
+                height: 200px;
+            }
+            .side-card {
+                flex: 1;
+            }
+            .grid-4, .grid-3, .download-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .header-inner .nav-links {
+                display: none; /* Simplified mobile handling */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid-4, .grid-3, .download-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-side {
+                flex-direction: column;
+                height: auto;
+            }
+            .side-card {
+                height: 200px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .search-box input {
+                width: 120px;
+            }
+            .search-box input:focus {
+                width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">游戏巴士<span>BUS</span></a>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热门游戏</a></li>
+                    <li><a href="#">攻略专区</a></li>
+                    <li><a href="#">手游评测</a></li>
+                    <li><a href="#">硬件周边</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索游戏、攻略...">
+                </div>
+                <button class="btn-login">登录</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-main">
+                <img src="https://picsum.photos/seed/gaming1/800/450" alt="热门游戏封面">
+                <div class="hero-overlay">
+                    <span class="hero-tag">今日推荐</span>
+                    <h1 class="hero-title">赛博幻境：无限征途 - 独家深度评测</h1>
+                    <p class="hero-desc">探索未来的废土世界，体验极致的开放世界冒险。本评测为您带来第一手画面解析与玩法深度解读，助您快速上手。</p>
+                    <a href="#" class="btn-primary">阅读完整评测 &rarr;</a>
+                </div>
+            </div>
+            <div class="hero-side">
+                <div class="side-card">
+                    <img src="https://picsum.photos/seed/gaming2/400/300" alt="侧边卡片">
+                    <div class="side-card-overlay">
+                        <h3 class="side-card-title">新版本“深渊回响”更新公告</h3>
+                    </div>
+                </div>
+                <div class="side-card">
+                    <img src="https://picsum.photos/seed/gaming3/400/300" alt="侧边卡片">
+                    <div class="side-card-overlay">
+                        <h3 class="side-card-title">2024年度最受期待游戏榜单</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hot News List -->
+        <section class="section container">
+            <div class="section-header">
+                <h2 class="section-title">🔥 热门资讯</h2>
+                <a href="#" class="view-all">查看更多 &rarr;</a>
+            </div>
+            <div class="list-style">
+                <article class="list-item">
+                    <div class="list-thumb">
+                        <img src="https://picsum.photos/seed/news1/200/150" alt="News Thumbnail">
+                    </div>
+                    <div class="list-content">
+                        <h3 class="list-title"><a href="#">暴雪回归国服：魔兽世界怀旧服开启预约，老玩家含泪排队</a></h3>
+                        <p class="list-desc">时隔多年，暴雪游戏终于重返大陆市场。本次回归不仅包含经典怀旧服，还带来了全新的跨平台互通功能，让老玩家与新玩家同台竞技。</p>
+                        <div class="list-tags">
+                            <span class="tag hot">热门</span>
+                            <span class="tag">暴雪</span>
+                            <span class="tag">魔兽世界</span>
+                            <span class="date">2小时前</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="list-item">
+                    <div class="list-thumb">
+                        <img src="https://picsum.photos/seed/news2/200/150" alt="News Thumbnail">
+                    </div>
+                    <div class="list-content">
+                        <h3 class="list-title"><a href="#">索尼PS5 Pro性能解析：光线追踪提升40%，首发游戏阵容公布</a></h3>
+                        <p class="list-desc">索尼正式发布次世代主机升级版，旨在为4K HDR游戏提供更流畅的体验。我们深入测试了其GPU性能，结果令人印象深刻。</p>
+                        <div class="list-tags">
+                            <span class="tag">硬件</span>
+                            <span class="tag">索尼</span>
+                            <span class="tag">PS5</span>
+                            <span class="date">5小时前</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="list-item">
+                    <div class="list-thumb">
+                        <img src="https://picsum.photos/seed/news3/200/150" alt="News Thumbnail">
+                    </div>
+                    <div class="list-content">
+                        <h3 class="list-title"><a href="#">《原神》枫丹版本前瞻直播：新地图与水下探索机制详解</a></h3>
+                        <p class="list-desc">米哈游公布了最新的枫丹版本预告，水下探索系统将成为本作的核心特色之一，全新角色“芙宁娜”也即将登场。</p>
+                        <div class="list-tags">
+                            <span class="tag">手游</span>
+                            <span class="tag">原神</span>
+                            <span class="tag">米哈游</span>
+                            <span class="date">8小时前</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Game Reviews Grid -->
+        <section class="section container">
+            <div class="section-header">
+                <h2 class="section-title">📝 最新评测</h2>
+                <a href="#" class="view-all">查看更多 &rarr;</a>
+            </div>
+            <div class="grid-3">
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <span class="card-tag">PC游戏</span>
+                        <img src="https://picsum.photos/seed/pcgame1/400/225" alt="Game Cover">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">黑神话：悟空 - 战斗系统深度体验</a></h3>
+                        <p class="card-excerpt">国产首款3A大作，其动作设计融合了传统武术与现代打击感，连招系统丰富度远超预期。</p>
+                        <div class="card-meta">
+                            <span class="date">评分 9.2</span>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <span class="card-tag">手游</span>
+                        <img src="https://picsum.photos/seed/mobilegame1/400/225" alt="Game Cover">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">星际战甲：新星火活动全攻略</a></h3>
+                        <p class="card-excerpt">深入解析新版本BOSS机制，分享高效率刷取稀有材料的方法，助您快速成型顶级装备。</p>
+                        <div class="card-meta">
+                            <span class="date">评分 8.5</span>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <span class="card-tag">主机</span>
+                        <img src="https://picsum.photos/seed/console1/400/225" alt="Game Cover">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">艾尔登法环：黄金树之影 DLC前瞻</a></h3>
+                        <p class="card-excerpt">FromSoftware新作DLC泄露了部分画面，新的区域“幽影之地”将带来更严苛的挑战。</p>
+                        <div class="card-meta">
+                            <span class="date">评分 9.8</span>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Game Download Section -->
+        <section class="section download-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">📥 游戏下载</h2>
+                    <a href="#" class="view-all">前往软件中心 &rarr;</a>
+                </div>
+                <div class="download-grid">
+                    <div class="download-card">
+                        <img src="https://picsum.photos/seed/icon1/100/100" class="app-icon" alt="Icon">
+                        <div class="app-name">Steam客户端</div>
+                        <div class="app-size">1.2 GB</div>
+                    </div>
+                    <div class="download-card">
+                        <img src="https://picsum.photos/seed/icon2/100/100" class="app-icon" alt="Icon">
+                        <div class="app-name">Epic游戏商城</div>
+                        <div class="app-size">850 MB</div>
+                    </div>
+                    <div class="download-card">
+                        <img src="https://picsum.photos/seed/icon3/100/100" class="app-icon" alt="Icon">
+                        <div class="app-name">NVIDIA GeForce</div>
+                        <div class="app-size">3.5 GB</div>
+                    </div>
+                    <div class="download-card">
+                        <img src="https://picsum.photos/seed/icon4/100/100" class="app-icon" alt="Icon">
+                        <div class="app-name">Battle.net</div>
+                        <div class="app-size">420 MB</div>
+                    </div>
+                    <div class="download-card">
+                        <img src="https://picsum.photos/seed/icon5/100/100" class="app-icon" alt="Icon">
+                        <div class="app-name">Ubisoft Connect</div>
+                        <div class="app-size">600 MB</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section container">
+            <div class="section-header">
+                <h2 class="section-title">❓ 常见问题</h2>
+            </div>
+            <div class="grid-4">
+                <div class="card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 10px;">如何安全下载游戏？</h4>
+                    <p style="font-size: 13px; color: #888;">建议通过官方网站、Steam、Epic等正版平台下载，避免使用不明来源的第三方安装包。</p>
+                </div>
+                <div class="card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 10px;">游戏闪退怎么办？</h4>
+                    <p style="font-size: 13px; color: #888;">请检查显卡驱动是否更新，关闭后台占用过高内存的程序，或尝试以管理员身份运行游戏。</p>
+                </div>
+                <div class="card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 10px;">如何查看游戏配置要求？</h4>
+                    <p style="font-size: 13px; color: #888;">在游戏官网的“支持”或“系统要求”页面可以找到详细的硬件配置列表。</p>
+                </div>
+                <div class="card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 10px;">支持哪些支付方式？</h4>
+                    <p style="font-size: 13px; color: #888;">主流平台支持支付宝、微信支付以及各大银行信用卡。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">游戏巴士<span>BUS</span></a>
+                    <p>致力于为全球玩家提供最及时、最全面的游戏资讯与下载服务。关注我们，不错过任何一款好游戏。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">广告合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">PC游戏</a></li>
+                        <li><a href="#">手机游戏</a></li>
+                        <li><a href="#">主机游戏</a></li>
+                        <li><a href="#">单机游戏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 游戏巴士 BUS. All Rights Reserved. 本站内容仅供学习交流，请勿用于商业用途。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                          </html>
